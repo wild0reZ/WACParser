@@ -13,6 +13,7 @@ Potrebbero verificarsi diverse situazioni:
   - \u202a \u200e \u202c
 4. Un messaggio può essere diviso su più righe, ad esempio:
   - **[data, ora] nome: messaggio**
+
     **resto del messaggio**
     in questo caso devo rimuovere '\n' dalla riga che contiene il timestamp
     cosicché il messaggio prenda una sola riga. Altrimenti inserire il timestamp
