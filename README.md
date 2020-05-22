@@ -28,9 +28,9 @@ consente la creazione di un **Dataframe** che poi può essere salvato come file
 in formato .csv.
 
 # TODO
-[ ] Leggere la documentazione del modulo **re**
-[ ] Vedere se sono presenti altri caratteri unicode da rimuovere
-[ ] Come strutturo il parser? Classi?
-[ ] Capire come posso eliminare lo '\n' dai messaggi su più righe
-[ ] Capire come usare le regex per dividere il messaggio
-[ ] Capire che analisi voglio fare
+- [ ] Leggere la documentazione del modulo **re**
+- [ ] Vedere se sono presenti altri caratteri unicode da rimuovere
+- [ ] Come strutturo il parser? Classi?
+- [ ] Capire come posso eliminare lo '\n' dai messaggi su più righe
+- [ ] Capire come usare le regex per dividere il messaggio
+- [ ] Capire che analisi voglio fare
