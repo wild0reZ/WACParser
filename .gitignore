@@ -3,4 +3,4 @@
 *.out
 *.ipynb
 .ipynb_checkpoints/
-__pycache__
+__pycache__/
