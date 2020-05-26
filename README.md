@@ -1,37 +1,36 @@
 # WACParser
 
-WhatsApp Chat Analyzer.
+WhatsApp Chat Parser.
 
-# Preprocessing della Chat
-Il formato (Italiano) dei messaggi è il seguente:
+# Formato della Chat
+Il formato iOS dei messaggi è il seguente:
 **[data, ora] nome: messaggio**
 
-Potrebbero verificarsi diverse situazioni:
-1. La chat contiene immagine/audio/video omessi. In questo caso la riga va saltata;
-2. Un messaggio può contenere dei tag definiti attraverso '@'. I tag vanno eliminati;
-3. La chat può contenere caratteri unicode che vanno rimossi.
-  - \u202a \u200e \u202c
-4. Un messaggio può essere diviso su più righe, ad esempio:
-  - **[data, ora] nome: messaggio**
-
-    **resto del messaggio**
-    in questo caso devo rimuovere '\n' dalla riga che contiene il timestamp
-    cosicché il messaggio prenda una sola riga. Altrimenti inserire il timestamp
-    a tutte le righe che non lo hanno prendendo come riferimento l'ultimo salvato.
+Il formato android dei messaggi è il seguente:
+**data, ora - nome: messaggio**
 
 # Librerie
-Per ora la divisione della riga del messaggio in 3 o 4 sottotipi viene fatta 
-attraverso l'utilizzo del modulo **re** di python. Questo consente l'uso delle
-espressioni regolari.
+L'unica dipendenza da soddisfare è **pandas**
+> pip3 install pandas
 
-La creazione del file in formato csv è delegata al modulo **pandas**. Questo 
-consente la creazione di un **Dataframe** che poi può essere salvato come file
-in formato .csv.
+# Uso
+> python3 main.py -h **Help message**
+Ci sono due argomenti obligatori:
+- -f/--file per specificare il file della chat
+- -c/--config specificare se la chat è stata esportata da android o ios
 
-# TODO
-- [ ] Leggere la documentazione del modulo **re**
-- [ ] Vedere se sono presenti altri caratteri unicode da rimuovere
-- [ ] Come strutturo il parser? Classi?
-- [ ] Capire come posso eliminare lo '\n' dai messaggi su più righe
-- [ ] Capire come usare le regex per dividere il messaggio
-- [ ] Capire che analisi voglio fare
+> python3 main.py -f nome_chat.txt -c android/ios
+
+La chat (per ora) deve essere messa all'interno della cartella del parser.
+
+Lo script crea un file chimato out_android.txt/out_ios.txt. Qesto è necessario ad aggiungere alcune "componenti"
+alla chat originale altrimenti il parser non funziona.
+
+In fine viene creato un file .csv contenente tre campi:
+- datetime, contenente data e ora nel formato YYYY/MM/dd HH:mm;
+- sender, persona che ha inviato il messaggio;
+- message, il messaggio.
+
+# Avvertenza
+Il codice è ottimizzato male.
+Questa versione è (probabilmente) un'alpha. Manca la gestione degli errori e devo ridurre il codice.
