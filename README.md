@@ -13,6 +13,8 @@ Il formato android dei messaggi è il seguente:
 L'unica dipendenza da soddisfare è **pandas**
 > pip3 install pandas
 
+Per una guida più dettagliata clicca [qui](https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html).
+
 # Uso
 > python3 main.py -h **Help message**
 Ci sono tre argomenti obligatori:
@@ -32,3 +34,5 @@ Il file .csv contiene tre colonne:
 # Avvertenza
 Il codice è ottimizzato male.
 Questa versione è (probabilmente) un'alpha. Manca la gestione degli errori e devo ridurre il codice.
+
+Inoltre c'è la possibilità che alcune linee, data la sanitizzazione della chat di partenza, non contengano dei messaggi.
