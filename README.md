@@ -15,18 +15,16 @@ L'unica dipendenza da soddisfare è **pandas**
 
 # Uso
 > python3 main.py -h **Help message**
-Ci sono due argomenti obligatori:
+Ci sono tre argomenti obligatori:
 - -f/--file per specificare il file della chat
 - -c/--config specificare se la chat è stata esportata da android o ios
+- -o/--output serve per specificare il nome del file in formato csv
 
-> python3 main.py -f nome_chat.txt -c android/ios
+> python3 main.py -f nome_chat.txt -c [android|ios] -o nome_file_output
 
 La chat (per ora) deve essere messa all'interno della cartella del parser.
 
-Lo script crea un file chimato out_android.txt/out_ios.txt. Qesto è necessario ad aggiungere alcune "componenti"
-alla chat originale altrimenti il parser non funziona.
-
-In fine viene creato un file .csv contenente tre campi:
+Il file .csv contiene tre colonne:
 - datetime, contenente data e ora nel formato YYYY/MM/dd HH:mm;
 - sender, persona che ha inviato il messaggio;
 - message, il messaggio.
