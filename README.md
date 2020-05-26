@@ -32,3 +32,5 @@ Il file .csv contiene tre colonne:
 # Avvertenza
 Il codice è ottimizzato male.
 Questa versione è (probabilmente) un'alpha. Manca la gestione degli errori e devo ridurre il codice.
+
+Inoltre c'è la possibilità che alcune linee, data la sanitizzazione della chat di partenza, non contengano dei messaggi.
