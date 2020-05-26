@@ -1,5 +1,5 @@
-import test_parsing as tp
+import android_parser as ap
 
-tp.parse_chat('real_chat.txt')
-df = tp.makeDf()
-tp.export_to_csv(df, 'chat.csv')
+ap.parse_chat('android_chat.txt')
+df = ap.makeDf()
+ap.export_to_csv(df, 'chat_android.csv')
