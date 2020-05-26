@@ -59,6 +59,5 @@ def make_csv(nome_file_output, os):
             message.append(current_word.group(4).strip().replace('~', ' '))
         else:
             continue
-    datetime = pd.to_datetime(datetime)
     df = pd.DataFrame(zip(datetime, sender, message), columns=['datetime', 'sender', 'message'])
     df.to_csv(nome_file_output+'.csv', index=False, sep="~")
