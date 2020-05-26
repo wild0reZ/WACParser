@@ -12,7 +12,8 @@ Il formato android dei messaggi è il seguente:
 # Librerie
 L'unica dipendenza da soddisfare è **pandas**
 > pip3 install pandas
-Per maggiori informazioni [qui](https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html).
+
+Per una guida più dettagliata clicca [qui](https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html).
 
 # Uso
 > python3 main.py -h **Help message**
