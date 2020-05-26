@@ -25,15 +25,15 @@ def parse_chat(file_name):
                 line = current_date + ', ' + current_time + ' - ' + current_sender + ': ' + line
                 final_list.append(line)
 
-    with open('output.txt', 'w') as out:
+    with open('output_android.txt', 'w') as out:
         for line in final_list:
             out.write("%s\n" % line)
         out.close()
 
-def makeDf():
+def make_csv():
     complete = re.compile(r'^(?P<date>\d{2}\/\d{2}\/\d{2}),\s+(?P<time>\d{2}\:\d{2})\s-\s(?P<name>[^:]+):\s+(?P<message>[\s\S]+?(?=^\[|\+\d{2}|\Z))', re.M)
     datetime = []; sender = []; message = []
-    with open('output.txt') as fp:
+    with open('output_android.txt') as fp:
         for row in fp.readlines():
             current_word = complete.match(row)
             if current_word is not None:
@@ -43,11 +43,6 @@ def makeDf():
             else:
                 continue
         fp.close()
+    datetime = pd.to_datetime(datetime)
     df = pd.DataFrame(zip(datetime, sender, message), columns=['datetime', 'sender', 'message'])
-    bool_series = pd.notnull(df['message'])
-    df = df[bool_series]
-    df['datetime'] = pd.to_datetime(df['datetime'])
-    return df
-
-def export_to_csv(df, file_name):
-    df.to_csv(file_name, index=False, sep="~")
+    df.to_csv('out_android.csv', index=False, sep="~")
