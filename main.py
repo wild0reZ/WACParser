@@ -1,11 +1,11 @@
 import parser as prs
 import argparse
 
-parser = argparse.ArgumentParser()
-parser.add_argument("-f", "--file", required=True, help="Nome del file chat")
-parser.add_argument("-c", "--config", required=True, help="Specificare se la chat è stata esportata da WhatsApp per Android o iOS")
-parser.add_argument("-o", "--output", required=True, help="Nome dell'output")
-args = vars(parser.parse_args())
+arg_parser = argparse.ArgumentParser()
+arg_parser.add_argument("-f", "--file", required=True, help="Nome del file chat")
+arg_parser.add_argument("-c", "--config", required=True, help="Specificare se la chat è stata esportata da WhatsApp per Android o iOS")
+arg_parser.add_argument("-o", "--output", required=True, help="Nome dell'output")
+args = vars(arg_parser.parse_args())
 
 if args['file']:
     if args['config'] == 'android' or args['config'] == 'ios':
