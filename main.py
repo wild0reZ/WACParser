@@ -23,3 +23,5 @@ if args['stats']:
     df = st.open_and_sanitize_df(args['output']+'.csv')
     t = st.analyze_day_messages(df)
     st.graph_day_messages(t)
+    t1 = st.analyze_sender_message(df)
+    st.graph_sender_message(t1)
