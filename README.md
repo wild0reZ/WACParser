@@ -32,7 +32,7 @@ In entrambi i casi il file .csv generato avrà lo stesso nome del file originale
 La chat (per ora) deve essere messa all'interno della cartella del parser.
 
 Il file .csv contiene tre colonne:
-- datetime, contenente data e ora nel formato YYYY/MM/dd HH:mm;
+- datetime, contenente data e ora nel formato dd/MM/YYYY HH:mm:(ss se estratta da iOS);
 - sender, persona che ha inviato il messaggio;
 - message, il messaggio.
 
