@@ -7,6 +7,7 @@ def open_and_sanitize_df(file_name):
     df['datetime'] = pd.to_datetime(df['datetime'], dayfirst=True)
     return df
 
+#========= Numero di Messaggi al Giorno
 def analyze_day_messages(df):
     new_df = df.copy()
     new_df = new_df.groupby(new_df['datetime'].dt.date).count()
@@ -20,7 +21,31 @@ def graph_day_messages(t):
     plt.figure(figsize=(20,10))
     plt.plot(data,messaggi)
     plt.xlabel('Data')
-    plt.xticks(rotation='vertical')
+    if len(data) <= 100:
+        data_list = [data[x] for x in range(0, len(data))]
+    else:
+        data_list = [data[x] for x in range(0, len(data), 10)]
+    plt.xticks(data_list, rotation='vertical')
     plt.ylabel('Numero Messaggi')
     plt.title('Numero messaggi al giorno')
-    plt.savefig('frequenza_messaggi.png', dpi=100)
+    plt.savefig('frequenza_messaggi_giorno.png', dpi=100)
+
+
+#========= Numero di Messaggi per Persona 
+def analyze_sender_message(df):
+    new_df = df.copy()
+    new_df = df.groupby('sender')['message'].count().to_frame()
+    new_df = new_df.rename(columns={'message':'number_of_messages'})
+    new_df = new_df.reset_index()
+    return new_df[['sender', 'number_of_messages']].apply(tuple)
+
+def graph_sender_message(t):
+    sender, n_message = t
+    plt.figure(figsize=(20,10))
+    plt.barh(sender, n_message)
+    for index, value in enumerate(n_message):
+        plt.text(value, index, str(value))
+    plt.xlabel('Numero di Messaggi')
+    plt.ylabel('Persona')
+    plt.title('Numero di Messaggi per Persona')
+    plt.savefig('frequenza_messaggi_persona.png', dpi=100)

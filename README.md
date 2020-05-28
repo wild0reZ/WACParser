@@ -17,12 +17,17 @@ Per una guida più dettagliata clicca [qui](https://pandas.pydata.org/pandas-doc
 
 # Uso
 > python3 main.py -h **Help message**
-Ci sono tre argomenti obligatori:
-- -f/--file per specificare il file della chat
-- -c/--config specificare se la chat è stata esportata da android o ios
-- -o/--output serve per specificare il nome del file in formato csv
+Il parser può essere utilizzato in due modi:
+1. Generare un file in formato .csv;
+2. Oltre alla generazione del file in formato .csv anche la creazione di immagini che rappresentano le statistiche della chat.
 
-> python3 main.py -f nome_chat.txt -c [android|ios] -o nome_file_output
+Per generare solamente il file csv bisogna utilizzare:
+> python3 main.py --create-csv nome_file.txt [ios|android] 
+
+Per generare anche le statistiche bisogna aggiungere il flag **-s**
+> python3 main.py --create-csv nome_file.txt [ios|android] -s
+
+In entrambi i casi il file .csv generato avrà lo stesso nome del file originale.
 
 La chat (per ora) deve essere messa all'interno della cartella del parser.
 
