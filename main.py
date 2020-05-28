@@ -1,5 +1,5 @@
-import parser as prs
-import statistic as st
+import wa_parser as prs
+import wa_statistics as st
 import argparse
 
 arg_parser = argparse.ArgumentParser()

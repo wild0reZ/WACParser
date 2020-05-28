@@ -24,7 +24,7 @@ def parse_chat(file_name, os):
     r1 = regex_dict[os]["reg1"]
     r2 = regex_dict[os]["reg2"]
     try: 
-        file_as_list = [remove_unicode(line.rstrip()) for line in open(file_name)]
+        file_as_list = [remove_unicode(line.rstrip()) for line in open(file_name, encoding='utf8')]
     except:
         print('Impossibile aprire o tovare il file')
 
