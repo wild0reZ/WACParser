@@ -10,12 +10,14 @@ Il formato android dei messaggi è il seguente:
 **data, ora - nome: messaggio**
 
 # Librerie
-L'unica dipendenza da soddisfare è **pandas**
-> pip3 install pandas
+Ci sono due dipendenze da soddisfare: **pandas** e **matplotlib**
+> pip3 install pandas matplotlib
 
-Per una guida più dettagliata clicca [qui](https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html).
+Per una guida più dettagliata su come installare pandas clicca [qui](https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html).
 
-# Uso
+Per una guida più dettagliata su come installare matplotlib clicca [qui](https://matplotlib.org/users/installing.html).
+
+# Utilizzo
 > python3 main.py -h **Help message**
 Il parser può essere utilizzato in due modi:
 1. Generare un file in formato .csv;
