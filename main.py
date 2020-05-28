@@ -19,6 +19,8 @@ if '.txt' in original_file and args['stats']:
             st.graph_day_messages(t)
             t1 = st.analyze_sender_message(df)
             st.graph_sender_message(t1)
+            top_10 = st.analyze_most_used_words(df)
+            st.graph_most_used_words(top_10)
     else:
         print('Sistema operativo non riconosciuto.')
 elif '.txt' in original_file:

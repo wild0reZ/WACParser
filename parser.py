@@ -51,7 +51,7 @@ def parse_chat(file_name, os):
 def make_csv(nome_file_output, os):
     datetime = []; sender = []; message = []
     complete = regex_dict[os]["complete"]
-    for row in sanitized_file_list:
+    for row in sanitized_file_list[2:]:
         current_word = complete.match(row)
         if current_word is not None:
             datetime.append(current_word.group(1) + ' ' + current_word.group(2))

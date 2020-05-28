@@ -1,5 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from collections import Counter
+
+with open('stopwords.txt') as sw:
+    stopwords = sw.read().replace('\n', ' ').split(' ')
 
 def open_and_sanitize_df(file_name):
     df = pd.read_csv(file_name, delimiter='~')
@@ -49,3 +53,32 @@ def graph_sender_message(t):
     plt.ylabel('Persona')
     plt.title('Numero di Messaggi per Persona')
     plt.savefig('frequenza_messaggi_persona.png', dpi=100)
+
+#============= Top 10 parole più utilizzate
+def analyze_most_used_words(df):
+    a = df.copy() # Copio il DataFrame
+    l = list(" ".join(a['message']).lower().strip().split()) # Joino tutti i messaggi in un'unica lista
+    l = [word for word in l if not word in stopwords]
+    return Counter(l).most_common(10) # conto le parole
+
+def graph_most_used_words(top_10):
+    word = []; counter = []
+    for t in top_10:
+        word.append(t[0])
+        counter.append(t[1])
+    word.reverse()
+    counter.reverse()
+    plt.figure(figsize=(20,10))
+    plt.barh(word, counter)
+    for index, value in enumerate(counter):
+        plt.text(value, index, str(value))
+    plt.xlabel('Numero di Occorrenze', fontsize=15)
+    plt.ylabel('Parola', fontsize=15)
+    plt.yticks(fontsize=20)
+    plt.xticks(fontsize=20)
+    plt.title('Occorrenze per Parola')
+    plt.savefig('Occorrenze_parola.png', transparent=False)
+
+
+
+sw.close()
