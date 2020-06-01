@@ -31,7 +31,7 @@ Per generare anche le statistiche bisogna aggiungere il flag **-s**
 
 In entrambi i casi il file .csv generato avrà lo stesso nome del file originale.
 
-Altrimenti è possibile generare le statistiche
+Altrimenti è possibile generare solamente le statistich attraverso:
 > python3 main.py -s nome_csv (senza specificare l'estensione)
 
 La chat (per ora) deve essere messa all'interno della cartella del parser.
