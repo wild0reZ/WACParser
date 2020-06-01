@@ -36,10 +36,10 @@ Altrimenti è possibile generare solamente le statistich attraverso:
 
 La chat (per ora) deve essere messa all'interno della cartella del parser.
 
-Il file .csv contiene tre colonne:
-- datetime, contenente data e ora nel formato dd/MM/YYYY HH:mm:(ss se estratta da iOS);
-- sender, persona che ha inviato il messaggio;
-- message, il messaggio.
+Il file .csv generato conterrà tre colonne:
+- **datetime**, contenente data e ora nel formato dd/MM/YYYY HH:mm:(ss se estratta da iOS);
+- **sender**, persona che ha inviato il messaggio;
+- **message**, il messaggio.
 
 # Avvertenza
 Il codice è ottimizzato male.
