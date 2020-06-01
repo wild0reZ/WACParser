@@ -27,9 +27,12 @@ Per generare solamente il file csv bisogna utilizzare:
 > python3 main.py --create-csv nome_file.txt [ios|android]
 
 Per generare anche le statistiche bisogna aggiungere il flag **-s**
-> python3 main.py --create-csv nome_file.txt [ios|android] -s
+> python3 main.py --create-csv nome_file.txt [ios|android] -s nome_csv
 
 In entrambi i casi il file .csv generato avrà lo stesso nome del file originale.
+
+Altrimenti è possibile generare le statistiche
+> python3 main.py -s nome_csv (senza specificare l'estensione)
 
 La chat (per ora) deve essere messa all'interno della cartella del parser.
 
