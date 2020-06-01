@@ -22,6 +22,10 @@ Per una guida più dettagliata su come installare matplotlib clicca [qui](https:
 Il parser può essere utilizzato in due modi:
 1. Generare un file in formato .csv;
 2. Oltre alla generazione del file in formato .csv anche la creazione di immagini che rappresentano le statistiche della chat.
+  - Al momento le statistiche generate comprondono:
+    1. Numero di messaggi della singola persona;
+    2. Frequenza di messaggi giornaliera;
+    3. Top 10 delle parole più utilizzate. (Nella cartella c'è un file di testo contenente le stopwords più utilizzate. Dato che è difficile rimuoverle tutte, c'è la possibilità che nelle parole utilizzate più di frequente compaia una stopword. In questo caso basta aggiungere la parola al file di testo.)
 
 Per generare solamente il file csv bisogna utilizzare:
 > python3 main.py --create-csv nome_file.txt [ios|android]
