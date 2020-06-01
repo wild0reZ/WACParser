@@ -18,9 +18,7 @@ def analyze_day_messages(df):
     new_df.index.name = 'data'
     new_df.reset_index(inplace=True)
     new_df = new_df.drop(['datetime', 'sender'], axis=1)
-    return new_df.apply(tuple)
-
-def graph_day_messages(t):
+    t = new_df.apply(tuple)
     data, messaggi = t
     plt.figure(figsize=(20,10))
     plt.plot(data,messaggi)
@@ -34,16 +32,13 @@ def graph_day_messages(t):
     plt.title('Numero messaggi al giorno')
     plt.savefig('frequenza_messaggi_giorno.png', dpi=100)
 
-
 #========= Numero di Messaggi per Persona 
 def analyze_sender_message(df):
     new_df = df.copy()
     new_df = df.groupby('sender')['message'].count().to_frame()
     new_df = new_df.rename(columns={'message':'number_of_messages'})
     new_df = new_df.reset_index()
-    return new_df[['sender', 'number_of_messages']].apply(tuple)
-
-def graph_sender_message(t):
+    t = new_df[['sender', 'number_of_messages']].apply(tuple)
     sender, n_message = t
     plt.figure(figsize=(20,10))
     plt.barh(sender, n_message)
@@ -59,9 +54,7 @@ def analyze_most_used_words(df):
     a = df.copy() # Copio il DataFrame
     l = list(" ".join(a['message']).lower().strip().split()) # Joino tutti i messaggi in un'unica lista
     l = [word for word in l if not word in stopwords]
-    return Counter(l).most_common(10) # conto le parole
-
-def graph_most_used_words(top_10):
+    top_10 = Counter(l).most_common(10) # conto le parole
     word = []; counter = []
     for t in top_10:
         word.append(t[0])
@@ -78,7 +71,5 @@ def graph_most_used_words(top_10):
     plt.xticks(fontsize=20)
     plt.title('Occorrenze per Parola')
     plt.savefig('Occorrenze_parola.png', transparent=False)
-
-
 
 sw.close()

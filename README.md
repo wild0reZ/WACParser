@@ -24,7 +24,7 @@ Il parser può essere utilizzato in due modi:
 2. Oltre alla generazione del file in formato .csv anche la creazione di immagini che rappresentano le statistiche della chat.
 
 Per generare solamente il file csv bisogna utilizzare:
-> python3 main.py --create-csv nome_file.txt [ios|android] 
+> python3 main.py --create-csv nome_file.txt [ios|android]
 
 Per generare anche le statistiche bisogna aggiungere il flag **-s**
 > python3 main.py --create-csv nome_file.txt [ios|android] -s
