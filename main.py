@@ -2,7 +2,8 @@ import modules.wa_parser as prs
 import modules.wa_statistics as st
 import modules.wa_preprocessing as pp
 import argparse
-
+import pandas as pd
+import numpy as np
 arg_parser = argparse.ArgumentParser()
 arg_parser.add_argument('--create-csv', nargs='+', help="Crea il file CSV partendo dalla chat in formato txt. I parametri vanno indicati come nome_chat.txt [android|ios]")
 arg_parser.add_argument('--stats', nargs='+', help="Crea il file in formato CSV e poi genera le statistiche della chat. I parametri vanno indicati come nome_chat.txt [android|ios]")
