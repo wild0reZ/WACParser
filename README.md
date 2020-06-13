@@ -22,21 +22,28 @@ Per una guida più dettagliata su come installare matplotlib clicca [qui](https:
 Il parser può essere utilizzato in due modi:
 1. Generare un file in formato .csv;
 2. Oltre alla generazione del file in formato .csv anche la creazione di immagini che rappresentano le statistiche della chat.
+  - Al momento le statistiche generate comprondono:
+    1. Numero di messaggi della singola persona;
+    2. Frequenza di messaggi giornaliera;
+    3. Top 10 delle parole più utilizzate. (Nella cartella c'è un file di testo contenente le stopwords più utilizzate. Dato che è difficile rimuoverle tutte, c'è la possibilità che nelle parole utilizzate più di frequente compaia una stopword. In questo caso basta aggiungere la parola al file di testo.)
 
 Per generare solamente il file csv bisogna utilizzare:
 > python3 main.py --create-csv nome_file.txt [ios|android]
 
 Per generare anche le statistiche bisogna aggiungere il flag **-s**
-> python3 main.py --create-csv nome_file.txt [ios|android] -s
+> python3 main.py --create-csv nome_file.txt [ios|android] -s nome_csv
 
 In entrambi i casi il file .csv generato avrà lo stesso nome del file originale.
 
+Altrimenti è possibile generare solamente le statistich attraverso:
+> python3 main.py -s nome_csv (senza specificare l'estensione)
+
 La chat (per ora) deve essere messa all'interno della cartella del parser.
 
-Il file .csv contiene tre colonne:
-- datetime, contenente data e ora nel formato dd/MM/YYYY HH:mm:(ss se estratta da iOS);
-- sender, persona che ha inviato il messaggio;
-- message, il messaggio.
+Il file .csv generato conterrà tre colonne:
+- **datetime**, contenente data e ora nel formato dd/MM/YYYY HH:mm:(ss se estratta da iOS);
+- **sender**, persona che ha inviato il messaggio;
+- **message**, il messaggio.
 
 # Avvertenza
 Il codice è ottimizzato male.
