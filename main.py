@@ -1,5 +1,6 @@
 import modules.wa_parser as prs
 import modules.wa_statistics as st
+import modules.wa_preprocessing as pp
 import argparse
 
 arg_parser = argparse.ArgumentParser()
@@ -22,16 +23,20 @@ if args['create_csv'] is not None:
         print('Qualcosa è andato storto. Chat non riconosciuta.')
 elif args['stats'] is not None:
     try:
-        original_file, config = args['stats']
+        original_file, config, is_sentiment = args['stats']
         output_file_name, extension = original_file.split('.')
         if 'txt' in extension:
             if config == 'android' or config == 'ios':
                 if prs.parse_chat(original_file, config):
                     prs.make_csv(output_file_name, config)
-                    df = st.open_and_sanitize_df(output_file_name+'.csv')
-                    st.analyze_day_messages(df)
-                    st.analyze_sender_message(df)
-                    st.analyze_most_used_words(df)
+                    df = pp.open_and_process_csv(output_file_name+'.csv', is_sentiment)
+                    if is_sentiment == 'y' or is_sentiment == 'Y':
+                        st.analyze_day_messages(df)
+                        st.analyze_sender_message(df)
+                    else:
+                        st.analyze_day_messages(df)
+                        st.analyze_sender_message(df)
+                        st.analyze_most_used_words(df)
                     print('Operazione completata. Ho generato le statistiche del file', output_file_name+'.csv')
             else:
                 print('Sistema operativo non riconosciuto.')
