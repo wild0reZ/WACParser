@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from collections import Counter
 
-with open('stopwords.txt') as sw:
+with open('./resources/stopwords.txt') as sw:
     stopwords = sw.read().replace('\n', ' ').split(' ')
 
 def open_and_sanitize_df(file_name):
