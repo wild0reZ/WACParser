@@ -30,13 +30,10 @@ Il parser può essere utilizzato in due modi:
 Per generare solamente il file csv bisogna utilizzare:
 > python3 main.py --create-csv nome_file.txt [ios|android]
 
-Per generare anche le statistiche bisogna aggiungere il flag **-s**
-> python3 main.py --create-csv nome_file.txt [ios|android] -s nome_csv
+Per generare il file csv e le statistiche bisogna utilizzare:
+> python3 main.py --stats nome_file.txt [ios|android]
 
 In entrambi i casi il file .csv generato avrà lo stesso nome del file originale.
-
-Altrimenti è possibile generare solamente le statistich attraverso:
-> python3 main.py -s nome_csv (senza specificare l'estensione)
 
 La chat (per ora) deve essere messa all'interno della cartella del parser.
 
