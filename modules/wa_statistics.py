@@ -2,15 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from collections import Counter
 
-with open('./resources/stopwords.txt') as sw:
-    stopwords = sw.read().replace('\n', ' ').split(' ')
-
-def open_and_sanitize_df(file_name):
-    df = pd.read_csv(file_name, delimiter='~')
-    df.dropna(axis=0, how='any', inplace=True)
-    df['datetime'] = pd.to_datetime(df['datetime'], dayfirst=True)
-    return df
-
 #========= Numero di Messaggi al Giorno
 def analyze_day_messages(df):
     new_df = df.copy()
@@ -53,7 +44,6 @@ def analyze_sender_message(df):
 def analyze_most_used_words(df):
     a = df.copy() # Copio il DataFrame
     l = list(" ".join(a['message']).lower().strip().split()) # Joino tutti i messaggi in un'unica lista
-    l = [word for word in l if not word in stopwords]
     top_10 = Counter(l).most_common(10) # conto le parole
     word = []; counter = []
     for t in top_10:
@@ -71,5 +61,3 @@ def analyze_most_used_words(df):
     plt.xticks(fontsize=20)
     plt.title('Occorrenze per Parola')
     plt.savefig('Occorrenze_parola.png', transparent=False)
-
-sw.close()
