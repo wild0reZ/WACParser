@@ -17,7 +17,7 @@ regex_dict = {
 }
 
 def remove_unicode(row):
-    return row.replace(u"\u202a", "").replace(u"\u200e", "").replace(u"\u202c", "")
+    return row.replace(u"\u202a", "").replace(u"\u200e", "").replace(u"\u202c", "").replace(u"\u202d", "")
 
 def parse_chat(file_name, os):
     file_as_list = []

@@ -7,20 +7,7 @@ import string
 from nltk.stem.snowball import SnowballStemmer
 from nltk.stem import WordNetLemmatizer
 
-"""
-Preprocessing:
-[X] Rimozione righe con campo messaggio vuoto
-[X] Trasformazione colonna datetime in formato datetime
-[X] Lowecase sui messaggi
-[X] Rimozione tag e siti internet
-[X] Rimozione parola omesso/a
-[X] Stemming
-[X] Lemmatization
-[X] Rimozione punctuations
-"""
-
 PUNCT_TO_REMOVE = string.punctuation
-
 stemmer = SnowballStemmer("italian")
 lemmatizer = WordNetLemmatizer()
 sp = spacy.load('it_core_news_sm')
@@ -79,8 +66,8 @@ def open_and_process_csv(file_name, is_sentiment):
     if is_sentiment == 'Y' or is_sentiment == 'y':
         print('Procedo con il lemmatization delle parole')
         df['message'] = df['message'].apply(lambda text: lemmatize_words(text))
-        print('Procedo con lo stemming delle parole')
-        df['message'] = df['message'].apply(lambda text: stem_words(text))
+        # print('Procedo con lo stemming delle parole')
+        # df['message'] = df['message'].apply(lambda text: stem_words(text))
     print('Rimuovo le righe che non contengono messaggi')
     remove_blank_lines(df)
     return df
