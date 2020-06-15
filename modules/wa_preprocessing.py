@@ -1,15 +1,10 @@
 import pandas as pd
 import numpy as np
 import re
-import nltk
-import spacy
 import string
-from nltk.stem.snowball import SnowballStemmer
-from nltk.stem import WordNetLemmatizer
+import spacy
 
 PUNCT_TO_REMOVE = string.punctuation
-stemmer = SnowballStemmer("italian")
-lemmatizer = WordNetLemmatizer()
 sp = spacy.load('it_core_news_sm')
 
 # Importo la lista delle stopwords
@@ -66,8 +61,6 @@ def open_and_process_csv(file_name, is_sentiment):
     if is_sentiment == 'Y' or is_sentiment == 'y':
         print('Procedo con il lemmatization delle parole')
         df['message'] = df['message'].apply(lambda text: lemmatize_words(text))
-        # print('Procedo con lo stemming delle parole')
-        # df['message'] = df['message'].apply(lambda text: stem_words(text))
     print('Rimuovo le righe che non contengono messaggi')
     remove_blank_lines(df)
     return df
